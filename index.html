@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste avec couleur aléatoire</title>
+</head>
+<body>
+
+    <h1> CLIQUEZ SUR UN ELEMENT DE LA LISTE </h1>
+
+    <ol>
+        <li>GL</li>
+        <li>RT</li>
+        <li>IIA</li>
+        <li>IMI</li>
+    </ol>
+
+    <script>
+        function genererCouleur() {
+            const lettres = '0123456789ABCDEF';
+            let couleur_alea = '#';
+            for (let i = 0; i < 6; i++) {
+                couleur_alea += lettres[Math.floor(Math.random() * 16)];
+            }
+            return couleur_alea;
+        }
+
+        let liste = document.querySelectorAll('li');
+        liste.forEach(li => {
+            li.addEventListener('click', function() {
+                li.style.color = genererCouleur(); 
+            });
+        });
+    </script>
+
+</body>
+</html>
